@@ -1,5 +1,8 @@
+import MeowArticle from "@/components/MeowArticle";
 import { getProducts } from "@/service/products";
 import Link from "next/link";
+
+export const revalidate = 3;
 
 export default async function Products() {
   // 서버 파일(데이터베이스)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌
@@ -11,9 +14,10 @@ export default async function Products() {
         {products.map(({ id, name }, index) => (
           <li key={index}>
             <Link href={`products/${id}`}>{name}</Link>
-          </li>
+          </li> 
         ))}
       </ul>
+      <MeowArticle />
     </>
   );
 }

@@ -1,6 +1,8 @@
 import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
 
+export const revalidate = 3;
+
 type Props = {
   params: {
     slug: string;
@@ -9,7 +11,7 @@ type Props = {
 
 export function generateMetadata({ params }: Props) {
   return {
-    title: `제품의 이름: ${params.slug}`,
+    title: `제품 페이지`,
   };
 }
 
